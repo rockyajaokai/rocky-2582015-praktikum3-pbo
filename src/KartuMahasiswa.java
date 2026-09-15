@@ -21,6 +21,10 @@ public class KartuMahasiswa {
         boolean sudahMenikah = input.nextBoolean();
 
         System.out.print("Masukkan nama lengkap    : ");
+        // Jebakan: nextLine() pertama membaca sisa newline dari nextBoolean(), bukan nama.
+        // Perbaikan: buang sisa newline dengan nextLine() kosong sebelum membaca nama.
+        input.nextLine();
+
         String namaLengkap = input.nextLine();
 
         System.out.println();
