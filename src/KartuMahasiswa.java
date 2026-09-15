@@ -1,9 +1,16 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class KartuMahasiswa {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        // Desimal wajib pakai titik (misal 170.5), bukan koma seperti default locale.
+        input.useLocale(Locale.US);
+
+        // Percobaan dengan int menghasilkan error kompilasi:
+        // "error: integer number too large: 3273010101990001" — karena 16 digit
+        // melewati batas maksimal int (2.147.483.647), maka NIK wajib bertipe long.
 
         System.out.print("Masukkan NIK (16 digit)  : ");
         long nik = input.nextLong();
